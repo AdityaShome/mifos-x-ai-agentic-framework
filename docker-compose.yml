@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: mifos-agent-backend:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - FINERACT_BASE_URL=${FINERACT_BASE_URL:-https://demo.mifos.io/fineract-provider/api/v1}
+      - FINERACT_TENANT=${FINERACT_TENANT:-default}
+      - FINERACT_USERNAME=${FINERACT_USERNAME:-mifos}
+      - FINERACT_PASSWORD=${FINERACT_PASSWORD:-password}
+      - FINERACT_TIMEOUT_SECONDS=${FINERACT_TIMEOUT_SECONDS:-300}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend/dashboard
+      dockerfile: Dockerfile
+    image: mifos-agent-frontend:latest
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+
+# Optional: add a `mock` service here only if you explicitly want one.
