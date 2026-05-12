@@ -1,6 +1,8 @@
 # Mifos X Portfolio Health Agent
 
 Prototype AI agent for monitoring loan portfolios in Mifos X / Apache Fineract.
+<img width="2179" height="2857" alt="image" src="https://github.com/user-attachments/assets/e22a8274-387e-4285-9a3b-d3bf0a2c0d96" />
+
 
 ## What Is Real Vs Planned
 
